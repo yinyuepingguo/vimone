@@ -23,8 +23,11 @@ set splitright
 set splitbelow
 set tags=/usr/include/tags
 set tags+=./tags
+set t_Co=256
+set term=xterm-256color
 syntax on
-colorscheme torte
+colorscheme molokai
+set background=dark
 
 "-------------------------------------------------------------
 "Search/Replace
@@ -45,7 +48,7 @@ set showmatch
 set cindent
 set shiftwidth=4
 set tabstop=4
-set completeopt=longest,menu         "close preview window on auto complete
+set completeopt=longest,menu     "close preview window on auto complete
 set colorcolumn=81
 autocmd FileType c set omnifunc=ccomplete#Complete
 set completeopt=menu,menuone " 关掉智能补全时的预览窗口
@@ -90,5 +93,6 @@ nmap <C-]> :Gtags<cr><cr>
 nmap <F5> :Gtags -gi<cr><cr>
 nmap <F4> :Gtags -r<cr><cr>
 
+let g:ConqueTerm_TERM="xterm"
 nmap <leader>v :ConqueTermVSplit bash<cr>
 nmap <leader>s :ConqueTermSplit bash<cr>
