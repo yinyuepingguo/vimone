@@ -21,8 +21,10 @@ set hidden
 set switchbuf=usetab
 set splitright
 set splitbelow
+set tags=/usr/include/tags
+set tags+=./tags
 syntax on
-colorscheme evening
+colorscheme torte
 
 "-------------------------------------------------------------
 "Search/Replace
@@ -46,9 +48,6 @@ set tabstop=4
 set completeopt=longest,menu         "close preview window on auto complete
 set colorcolumn=81
 autocmd FileType c set omnifunc=ccomplete#Complete
-imap <F3> <C-X><C-O>
-" 按下F2根据头文件内关键字补全
-imap <F2> <C-X><C-I>
 set completeopt=menu,menuone " 关掉智能补全时的预览窗口
 let OmniCpp_MayCompleteDot = 1 " autocomplete with .
 let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
@@ -62,7 +61,7 @@ let OmniCpp_DefaultNamespaces=["std"]
 let OmniCpp_ShowScopeInAbbr=1 " show scope in abbreviation and remove the last column
 let OmniCpp_ShowAccess=1 
 
-let Tlist_Ctags_Cmd='Gtags' "因为我们放在环境变量里，所以可以直接执行
+let Tlist_Ctags_Cmd='ctags' "因为我们放在环境变量里，所以可以直接执行
 let Tlist_Use_Right_Window=0 "让窗口显示在右边，0的话就是显示在左边
 let Tlist_Show_One_File=0 "让taglist可以同时展示多个文件的函数列表
 let Tlist_File_Fold_Auto_Close=1 "非当前文件，函数列表折叠隐藏
@@ -86,6 +85,10 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
 
-nmap <C-\>  :Gtags -gi<cr><cr>
+nmap <F3>  :!gtags<cr>
 nmap <C-]> :Gtags<cr><cr>
-nmap <C-q> :Gtags -r<cr><cr>
+nmap <F5> :Gtags -gi<cr><cr>
+nmap <F4> :Gtags -r<cr><cr>
+
+nmap <leader>v :ConqueTermVSplit bash<cr>
+nmap <leader>s :ConqueTermSplit bash<cr>
