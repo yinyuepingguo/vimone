@@ -75,7 +75,7 @@ let Tlist_Inc_Winwidth=0
 
 let g:winManagerWindowLayout='FileExplorer|TagList' " 设置我们要管理的插件
 let g:persistentBehaviour=1 " 如果所有编辑文件都关闭了，退出vim
-nmap wm :WMToggle<cr> 
+nmap <leader>wm :WMToggle<cr> 
 
 nmap <silent><leader>t :w<CR>:OmniTagsLoad ./tags<CR>:!ctags --c-kinds=+px --c++-kinds=+px --fields=+liafksS --extra=+qf -R ./ <CR>
 nmap <leader><leader> :w<CR>:!ctags --c-kinds=+px --c++-kinds=+px --fields=+liafksS --extra=+qf -R ./ <CR>:OmniTagsUpdate<CR>:TlistUpdate<CR>
