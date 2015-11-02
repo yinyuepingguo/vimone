@@ -1,8 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/vimtest/.vim/colors'
 let g:netrw_dirhist_2='/home/vimtest/.vim/macros'
 let g:netrw_dirhist_3='/home/vimtest/.vim/plugin/signature'
 let g:netrw_dirhist_4='/home/yinyue/Programs/blkfs'
 let g:netrw_dirhist_5='/home/yinyue/.vim/plugin'
 let g:netrw_dirhist_6='/home/yinyue/.vim'
+let g:netrw_dirhist_7='/home/yinyue/.vim/plugin'
+let g:netrw_dirhist_8='/home/yinyue/.vim'
+let g:netrw_dirhist_9='/home/yinyue/.vim/plugin'
