@@ -1,0 +1,7 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=84
+
+You have one window with (g)vim open, other window with gdb running. When you reach source line in your code, it appears in the vim window. In the opposite direction, you can send commands from vim to gdb (e.g., set breakpoints on given line).
+
+You  may want to look at vimtip #357. I did not test that, but it may ease your work with this script.
+
+It is possible that slightly fixed version and more on-line information is at http://www.volny.cz/zellerin/gdbvim/ .

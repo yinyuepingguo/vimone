@@ -97,3 +97,4 @@ let g:ConqueTerm_TERM="xterm"
 nmap <leader>v :ConqueTermVSplit bash<cr>
 nmap <leader>s :ConqueTermSplit bash<cr>
 nmap <leader>t :ConqueTermTab bash<cr>
+
