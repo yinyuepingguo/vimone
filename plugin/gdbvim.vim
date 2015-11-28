@@ -105,8 +105,7 @@ function s:Gdb_shortcuts()
     nmap <unique> <Leader>gn :<C-U>Gdb next<CR>
     nmap <unique> <Leader>gf :Gdb finish<CR>
     nmap <unique> <Leader>gc :<C-U>Gdb continue<CR>
-    vmap <unique> <Leader>gp "gy:Gdb print <C-R>g<CR>
-    nmap <unique> <Leader><C-P> :call Gdb_command("print ".expand("<cword>"))<CR> 
+    nmap <unique> <Leader>gp :call Gdb_command("print ".expand("<cword>"))<CR> 
     nmenu Gdb.Command :<C-U>Gdb 
     nmenu Gdb.Run :Gdb Run<CR>
     nmenu Gdb.Step :<C-U>Gdb step<CR>
