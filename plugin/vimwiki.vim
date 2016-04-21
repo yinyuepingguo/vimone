@@ -547,3 +547,6 @@ endif
 
 
 let &cpo = s:old_cpo
+
+
+let g:vimwiki_folding=1

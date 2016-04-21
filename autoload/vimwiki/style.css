@@ -73,3 +73,28 @@ code {
     border: 1px solid #ccc;
     background-color: #f9f9f9;
 }
+
+
+p,blockquote {
+    text-indent: 2em;
+}
+
+ol {
+    margin-left: 2em;
+}
+
+img {
+    max-width: 80%;
+    margin: auto;
+    display: block;
+}
+
+table {
+    margin: auto;
+    width: 80%;
+    text-align: center;
+}
+
+td {
+    min-width: 100px;
+}
