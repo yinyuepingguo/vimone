@@ -104,10 +104,23 @@
     td {
         min-width: 100px;
     }
+
+    .title_container {
+        display: block;
+        margin-bottom: 100px;
+    }
+
+    .title {
+        text-align: center;
+        text-shadow: 2px 2px 2px #888888
+    }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
 </head>
 <body>
+    <div class="title_container">
+        <h1 class="title">%title%</h1>
+    </div>
 %content%
 </body>
 </html>
