@@ -549,4 +549,7 @@ endif
 let &cpo = s:old_cpo
 
 
-let g:vimwiki_folding=1
+
+
+let g:vimwiki_auto_toc = 1
+let g:vimwiki_toc_header = "目录"
