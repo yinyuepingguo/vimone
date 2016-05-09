@@ -99,3 +99,5 @@ nmap <leader>s :ConqueTermSplit bash<cr>
 nmap <leader>t :ConqueTermTab bash<cr>
 
 nmap <leader>m  :!pkill mplayer; mplayer `shuf -e ~/Music/* \| head -n 1` >/dev/null 2>&1 &<CR><CR>
+
+map <C-n> :NERDTreeToggle<CR>
