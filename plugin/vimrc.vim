@@ -26,8 +26,10 @@ set tags+=./tags
 set t_Co=256
 set term=xterm-256color
 syntax on
-colorscheme molokai
-set background=dark
+"colorscheme molokai
+colorscheme default
+set background=light
+"set background=dark
 
 "-------------------------------------------------------------
 "Search/Replace
