@@ -1,135 +1,89 @@
-A Personal Wiki For Vim
-==============================================================================
+# Tagbar: a class outline viewer for Vim
 
-![screenshot1](doc/screenshot_1.png)
-![screenshot2](doc/screenshot_2.png)
+## What Tagbar is
 
-Intro
-------------------------------------------------------------------------------
+Tagbar is a Vim plugin that provides an easy way to browse the tags of the
+current file and get an overview of its structure. It does this by creating a
+sidebar that displays the ctags-generated tags of the current file, ordered by
+their scope. This means that for example methods in C++ are displayed under
+the class they are defined in.
 
-Vimwiki is a personal wiki for Vim -- a number of linked text files that have
-their own syntax highlighting.
+## What Tagbar is not
 
-With Vimwiki you can:
+Tagbar is not a general-purpose tool for managing `tags` files. It only
+creates the tags it needs on-the-fly in-memory without creating any files.
+`tags` file management is provided by other plugins, like for example
+[easytags](https://github.com/xolox/vim-easytags).
 
- * organize notes and ideas
- * manage todo-lists
- * write documentation
- * maintain a diary
- * export everything to HTML
+## Dependencies
 
-To do a quick start press `<Leader>ww` (this is usually `\ww`) to go to your index
-wiki file.  By default it is located in `~/vimwiki/index.wiki`.
+[Vim 7.0](http://www.vim.org/) (But see note below)  
+[Exuberant ctags 5.5](http://ctags.sourceforge.net/)
 
-Feed it with the following example:
+## Installation
 
-    = My knowledge base =
-        * Tasks -- things to be done _yesterday_!!!
-        * Project Gutenberg -- good books are power.
-        * Scratchpad -- various temporary stuff.
+Extract the archive or clone the repository into a directory in your
+`'runtimepath'`, or use a plugin manager of your choice like
+[pathogen](https://github.com/tpope/vim-pathogen). Don't forget to run
+`:helptags` if your plugin manager doesn't do it for you so you can access the
+documentation with `:help tagbar`.
 
-Place your cursor on `Tasks` and press Enter to create a link.  Once pressed,
-`Tasks` will become `[[Tasks]]` -- a Vimwiki link.  Press Enter again to
-open it.  Edit the file, save it, and then press Backspace to jump back to your
-index.
+Note: Vim versions < 7.0.167 have a bug that prevents Tagbar from working. If
+you are affected by this use this alternate Tagbar download instead:
+[zip](https://github.com/majutsushi/tagbar/zipball/70fix). It is on par with
+version 2.2 but probably won't be updated after that due to the amount of
+changes required.
 
-A Vimwiki link can be constructed from more than one word.  Just visually
-select the words to be linked and press Enter.  Try it with `Project Gutenberg`.
-The result should look something like:
+If the ctags executable is not installed in one of the directories in your
+`$PATH` environment variable you have to set the `g:tagbar_ctags_bin`
+variable, see the documentation for more info.
 
-    = My knowledge base =
-        * [[Tasks]] -- things to be done _yesterday_!!!
-        * [[Project Gutenberg]] -- good books are power.
-        * Scratchpad -- various temporary stuff.
+## Quickstart
 
+Put something like the following into your ~/.vimrc:
 
-Basic Markup
-------------------------------------------------------------------------------
+```vim
+nmap <F8> :TagbarToggle<CR>
+```
 
-    = Header1 =
-    == Header2 ==
-    === Header3 ===
+If you do this the F8 key will toggle the Tagbar window. You can of course use
+any shortcut you want. For more flexible ways to open and close the window
+(and the rest of the functionality) see the documentation.
 
+## Support for additional filetypes
 
-    *bold* -- bold text
-    _italic_ -- italic text
+For filetypes that are not supported by Exuberant Ctags check out [the
+wiki](https://github.com/majutsushi/tagbar/wiki) to see whether other projects
+offer support for them and how to use them. Please add any other
+projects/configurations that you find or create yourself so that others can
+benefit from them, too.
 
-    [[wiki link]] -- wiki link
-    [[wiki link|description]] -- wiki link with description
+## Note: If the file structure display is wrong
 
+If you notice that there are some errors in the way your file's structure is
+displayed in Tagbar, please make sure that the bug is actually in Tagbar
+before you report an issue. Since Tagbar uses
+[exuberant-ctags](http://ctags.sourceforge.net/) and compatible programs to do
+the actual file parsing, it is likely that the bug is actually in the program
+responsible for that filetype instead.
 
-Lists:
+There is an example in `:h tagbar-issues` about how to run ctags manually so
+you can determine where the bug actually is. If the bug is actually in ctags,
+please report it on their website instead, as there is nothing I can do about
+it in Tagbar. Thank you!
 
-    * bullet list item 1
-        - bullet list item 2
-        - bullet list item 3
-            * bullet list item 4
-            * bullet list item 5
-    * bullet list item 6
-    * bullet list item 7
-        - bullet list item 8
-        - bullet list item 9
+You can also have a look at [ctags bugs that have previously been filed
+against Tagbar](https://github.com/majutsushi/tagbar/issues?labels=ctags-bug&page=1&state=closed).
 
-    1. numbered list item 1
-    2. numbered list item 2
-        a) numbered list item 3
-        b) numbered list item 4
+## Screenshots
 
+![screenshot1](https://i.imgur.com/Sf9Ls2r.png)
+![screenshot2](https://i.imgur.com/n4bpPv3.png)
 
-For other syntax elements, see `:h vimwiki-syntax`
+## License
 
+Vim license, see LICENSE
 
-Key bindings
-------------------------------------------------------------------------------
+## Maintainer
 
-normal mode:
-
- * `<Leader>ww` -- Open default wiki index file.
- * `<Leader>wt` -- Open default wiki index file in a new tab.
- * `<Leader>ws` -- Select and open wiki index file.
- * `<Leader>wd` -- Delete wiki file you are in.
- * `<Leader>wr` -- Rename wiki file you are in.
- * `<Enter>` -- Follow/Create wiki link
- * `<Shift-Enter>` -- Split and follow/create wiki link
- * `<Ctrl-Enter>` -- Vertical split and follow/create wiki link
- * `<Backspace>` -- Go back to parent(previous) wiki link
- * `<Tab>` -- Find next wiki link
- * `<Shift-Tab>` -- Find previous wiki link
-
-For more keys, see `:h vimwiki-mappings`
-
-
-Commands
-------------------------------------------------------------------------------
-
- * `:Vimwiki2HTML` -- Convert current wiki link to HTML
- * `:VimwikiAll2HTML` -- Convert all your wiki links to HTML
- * `:help vimwiki-commands` -- list all commands
-
-
-Installation
-==============================================================================
-
-Prerequisites
-------------------------------------------------------------------------------
-
-Make sure you have these settings in your vimrc file:
-
-    set nocompatible
-    filetype plugin on
-    syntax on
-
-Without them Vimwiki will not work properly.
-
-
-Installation using [Pathogen](http://www.vim.org/scripts/script.php?script_id=2332)
-------------------------------------------------------------------------------
-
-    cd ~/.vim
-    mkdir bundle
-    cd bundle
-    git clone https://github.com/vimwiki/vimwiki.git
-
-Or download the [zip archive](https://github.com/vimwiki/vimwiki/archive/master.zip) and extract it in `~/.vim/bundle/`
-
-Then launch Vim, run `:Helptags` and then `:help vimwiki` to verify it was installed.
+Jan Larres <[jan@majutsushi.net](mailto:jan@majutsushi.net)>
