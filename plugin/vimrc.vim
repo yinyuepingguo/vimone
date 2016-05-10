@@ -88,5 +88,4 @@ nmap <leader>m  :!pkill mplayer; mplayer `shuf -e ~/Music/* \| head -n 1` >/dev/
 
 map <C-n> :NERDTreeToggle<CR>
 
-nmap <Tab> :CtrlPBuffer<CR>
 
