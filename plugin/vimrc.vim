@@ -86,17 +86,17 @@ nmap <leader>t :ConqueTermTab bash<cr>
 
 nmap <leader>m  :!pkill mplayer; mplayer `shuf -e ~/Music/* \| head -n 1` >/dev/null 2>&1 &<CR><CR>
 
-map <C-h> :tabprev<CR>
-map <C-l> :tabnext<CR>
-map <C-j> :bp<CR>
-map <C-k> :bn<CR>
-
-map <F8>  :TagbarOpenAutoClose<CR>
+map <F8>  :TagbarToggle<CR>
 let g:tagbar_autoshowtag=1
-autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
+"autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
 let g:netrw_liststyle=3
 let g:netrw_banner=0
+let g:netrw_hide=1
+let g:netrw_preview=1
+let g:netrw_alto=0
+let g:netrw_altv=1
+let g:netrw_wiw=30
 map <C-n> :20Lexplore<CR>
 
 
