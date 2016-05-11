@@ -86,6 +86,17 @@ nmap <leader>t :ConqueTermTab bash<cr>
 
 nmap <leader>m  :!pkill mplayer; mplayer `shuf -e ~/Music/* \| head -n 1` >/dev/null 2>&1 &<CR><CR>
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-h> :tabprev<CR>
+map <C-l> :tabnext<CR>
+map <C-j> :bp<CR>
+map <C-k> :bn<CR>
+
+map <F8>  :TagbarOpenAutoClose<CR>
+let g:tagbar_autoshowtag=1
+autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
+
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+map <C-n> :20Lexplore<CR>
 
 
