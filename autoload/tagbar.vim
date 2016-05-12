@@ -3920,11 +3920,6 @@ function! s:QuitIfOnlyWindow() abort
         return
     endif
 
-" patch for netrw
-    if bufwinnr(bufnr('NetrwTreeListing')) != -1
-        return
-    endif
-
     let curwinnr = winnr()
     let prevwinnr = winnr('#') == 0 ? curwinnr : winnr('#')
     call s:goto_win(tagbarwinnr, 1)
@@ -3983,7 +3978,8 @@ endfunction
 
 " s:goto_win() {{{2
 function! s:goto_win(winnr, ...) abort
-    let cmd = type(a:winnr) == type(0) ? a:winnr . 'wincmd w'
+    let cmd = type(a:winnr) == type(0) && winbufnr(a:winnr) != -1 
+                                     \ ? a:winnr . 'wincmd w'
                                      \ : 'wincmd ' . a:winnr
     let noauto = a:0 > 0 ? a:1 : 0
 
