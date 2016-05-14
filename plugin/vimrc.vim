@@ -28,6 +28,10 @@ colorscheme default
 set background=light
 "set background=dark
 
+if exists("$TMUX")
+    set term=screen-256color
+endif
+
 "-------------------------------------------------------------
 "Search/Replace
 "-------------------------------------------------------------
